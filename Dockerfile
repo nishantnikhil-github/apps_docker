@@ -1,8 +1,7 @@
 FROM centos:7
 
 
-ENV http_proxy=proxy-am.shell.com:8080
-ENV https_proxy=proxy-am.shell.com:8080
+
 
 # Build commands
 RUN yum swap -y fakesystemd systemd && \
