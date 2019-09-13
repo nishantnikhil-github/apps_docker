@@ -1,0 +1,29 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    agent any
+
+    stages {
+        stage('initialize') {
+            steps {
+                sh "rm -rf solid-telegram"
+                sh "git clone -b nishant-branch-1 --single-branch https://github.com/mhristof/solid-telegram.git"
+            }
+        }
+         stage('build') {
+            steps {
+                sh "javac ./solid-telegram/Java_App_Example/hello/HelloWorld.java"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
